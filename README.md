@@ -81,11 +81,11 @@ Initialize the encoder, this must done in `setup()`.
 enc.begin();
 ```
 
-### **interuptEncoder()**
+### **interruptEncoder()**
 ```cpp
 void interruptEncoder(bool interrupt);
 ```
-- **intterupt** true for interrupt set, false to disable interrupt
+- **interrupt** true for interrupt set, false to disable interrupt
 
 Set the Interrupt of the encoder, this should done in `setup()`.
 
@@ -94,7 +94,7 @@ Set the Interrupt of the encoder, this should done in `setup()`.
 enc.interruptEncoder(true);
 ```
 
-### **interuptButton()**
+### **interruptButton()**
 ```cpp
 void interruptButton(bool interrupt);
 ```
