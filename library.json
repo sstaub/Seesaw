@@ -1,0 +1,15 @@
+{
+    "name": "Seesaw",
+    "keywords": "Rotary Encoder, NeoKey, NeoSlider, I2C, Adafruit, Stemma QT",
+    "description": "Library for Adafruit I2C Stemma QT Rotary Encoder, NeoKey and NeoSlider",
+    "authors": {
+        "name": "Stefan Staub"
+    },
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/sstaub/Seesaw"
+    },
+    "version": "1.0.0",
+    "frameworks": "arduino"
+}

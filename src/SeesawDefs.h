@@ -1,0 +1,103 @@
+#ifndef SEESAW_DEFS_H
+#define SEESAW_DEFS_H
+
+#define I2C_READ_DELAY_US 250
+
+// rotary encoder hardware defs
+#define ENCODER_I2C_ADDRESS    0x36
+#define ENCODER_NEOPIXEL_PIN   6
+#define ENCODER_BUTTON_PIN     24
+
+// neokey hardware defs
+
+// neokey 1x4 hardware defs
+
+// neoslider hardware defs
+
+// base addresses
+#define SEESAW_BASE_ADDRESS_STATUS    0x00
+#define SEESAW_BASE_ADDRESS_GPIO      0x01
+#define SEESAW_BASE_ADDRESS_SERCOM0   0x02
+#define SEESAW_BASE_ADDRESS_SERCOM1   0x03
+#define SEESAW_BASE_ADDRESS_SERCOM2   0x04
+#define SEESAW_BASE_ADDRESS_SERCOM3   0x05
+#define SEESAW_BASE_ADDRESS_SERCOM4   0x06
+#define SEESAW_BASE_ADDRESS_SERCOM5   0x07
+#define SEESAW_BASE_ADDRESS_TIMER     0x08
+#define SEESAW_BASE_ADDRESS_ADC       0x09
+#define SEESAW_BASE_ADDRESS_DAC       0x0A
+#define SEESAW_BASE_ADDRESS_INTERRUPT 0x0B
+#define SEESAW_BASE_ADDRESS_DAP       0x0C
+#define SEESAW_BASE_ADDRESS_EEPROM    0x0D
+#define SEESAW_BASE_ADDRESS_NEOPIXEL  0x0E
+#define SEESAW_BASE_ADDRESS_TOUCH     0x0F
+#define SEESAW_BASE_ADDRESS_KEYPAD    0x10
+#define SEESAW_BASE_ADDRESS_ENCODER   0x11
+
+// status registers
+#define SEESAW_STATUS_HW_ID   0x01
+#define SEESAW_STATUS_VERSION 0x02
+#define SEESAW_STATUS_OPTIONS 0x03
+#define SEESAW_STATUS_TEMP    0x04
+#define SEESAW_STATUS_SWRST   0x7F
+
+// gpio registers
+#define SEESAW_GPIO_DIRSET_BULK 0x02
+#define SEESAW_GPIO_DIRCLR_BULK 0x03
+#define SEESAW_GPIO_BULK        0x04
+#define SEESAW_GPIO_BULK_SET    0x05
+#define SEESAW_GPIO_BULK_CLR    0x06
+#define SEESAW_GPIO_BULK_TOGGLE 0x07
+#define SEESAW_GPIO_INTENSET    0x08
+#define SEESAW_GPIO_INTENCLR    0x09
+#define SEESAW_GPIO_INTFLAG     0x0A
+#define SEESAW_GPIO_PULLENSET   0x0B
+#define SEESAW_GPIO_PULLENCLR   0x0C
+
+// timer registers
+#define SEESAW_TIMER_STATUS 0x00
+#define SEESAW_TIMER_PWM    0x01
+#define SEESAW_TIMER_FREQ   0x02
+
+// adc registers
+#define SEESAW_ADC_STATUS         0x00
+#define SEESAW_ADC_INTEN          0x02
+#define SEESAW_ADC_INTENCLR       0x03
+#define SEESAW_ADC_WINMODE        0x04
+#define SEESAW_ADC_WINTHRESH      0x05
+#define SEESAW_ADC_CHANNEL_OFFSET 0x07
+
+// sercom registers
+#define SEESAW_SERCOM_STATUS   0x00
+#define SEESAW_SERCOM_INTEN    0x02
+#define SEESAW_SERCOM_INTENCLR 0x03
+#define SEESAW_SERCOM_BAUD     0x04
+#define SEESAW_SERCOM_DATA     0x05
+
+// neopixel registers
+#define SEESAW_NEOPIXEL_STATUS     0x00
+#define SEESAW_NEOPIXEL_PIN        0x01
+#define SEESAW_NEOPIXEL_SPEED      0x02
+#define SEESAW_NEOPIXEL_BUF_LENGTH 0x03
+#define SEESAW_NEOPIXEL_BUF        0x04
+#define SEESAW_NEOPIXEL_SHOW       0x05
+
+// touch registers
+#define SEESAW_TOUCH_CHANNEL_OFFSET 0x10
+
+// keypad registers
+#define SEESAW_KEYPAD_STATUS   0x00
+#define SEESAW_KEYPAD_EVENT    0x01
+#define SEESAW_KEYPAD_INTENSET 0x02
+#define SEESAW_KEYPAD_INTENCLR 0x03
+#define SEESAW_KEYPAD_COUNT    0x04
+#define SEESAW_KEYPAD_FIFO     0x10
+
+// encoder registers
+#define SEESAW_ENCODER_STATUS   0x00
+#define SEESAW_ENCODER_INTENSET 0x10
+#define SEESAW_ENCODER_INTENCLR 0x20
+#define SEESAW_ENCODER_POSITION 0x30
+#define SEESAW_ENCODER_DELTA    0x40
+
+#endif

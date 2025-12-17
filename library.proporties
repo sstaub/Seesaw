@@ -1,0 +1,9 @@
+name=Seesaw
+version=1.0.0
+author=Stefan Staub
+maintainer= https://github.com/sstaub/
+sentence=Library for Adafruit I2C Stemma QT Rotary Encoder, NeoKey and NeoSlider.
+paragraph=Library for Adafruit I2C Stemma QT Rotary Encoder, NeoKey and NeoSlider with simplified use without the Adafruit libraries.
+category=
+url=https://github.com/sstaub/Seesaw
+architectures=*
