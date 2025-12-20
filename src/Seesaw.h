@@ -37,7 +37,7 @@ public:
 	/**
 	 * @brief Construct a new Seesaw Encoder object
 	 * 
-	 * @param i2cAddr default i2c address 0x36
+	 * @param i2cAddr default i2c address 0x36 [0x36 ... 0x3F]
 	 * @param i2cPort alternatives I2C Ports, Wire and Wire1 ...
 	 */
 	SeesawEncoder(uint8_t i2cAddr = ENCODER_I2C_ADDRESS, TwoWire &i2cPort = Wire);
@@ -93,15 +93,66 @@ public:
 	 */
 	void pixel(uint8_t red, uint8_t green, uint8_t blue);
 
-	virtual size_t write(uint8_t value);
-	virtual size_t write(const uint8_t *buffer, size_t size);
-	uint8_t read(uint8_t addr);
-
 private:
 	void write(uint8_t base, uint8_t function);
 	void write(uint8_t base, uint8_t function, uint8_t value);
 	void write(uint8_t base, uint8_t function, uint8_t *buf, uint8_t num);
 	void read(uint8_t base, uint8_t gunction, uint8_t *buf, uint8_t num);
+	TwoWire *i2cPort;
+	uint8_t i2cAddr;
+	};
+
+/**
+ * @brief Seesaw Encoder Class
+ * 
+ */
+class SeesawNeoKey4 {
+public:
+	/**
+	 * @brief Construct a new Seesaw Encoder object
+	 * 
+	 * @param i2cAddr default i2c address 0x30 [0x30 ... 0x3f]
+	 * @param i2cPort alternatives I2C Ports, Wire and Wire1 ...
+	 */
+	SeesawNeoKey4(uint8_t i2cAddr = NEOKEY_1X4_I2C_ADDRESS, TwoWire &i2cPort = Wire);
+
+	/**
+	 * @brief 
+	 * 
+	 */
+	void begin();
+
+	/**
+	 * @brief Set interrupt for the button
+	 * 
+	 * @param intterupt true for set interrupt, false for clear interrupt
+	 */
+	void interruptButton(bool interrupt);
+
+	/**
+	 * @brief Get the encoder button press
+	 * 
+	 * @param num button number [1 ... 4]
+	 * @return true if encoder button press
+	 * @return false if no encoder button press
+	 */
+	bool button(uint8_t num);
+
+	/**
+	 * @brief Set the neopixel colors
+	 * 
+	 * @param num pixel number [1 ... 4]
+	 * @param red neopixel red color
+	 * @param green neopixel green color
+	 * @param blue neopixel blue color
+	 */
+	void pixel(uint8_t num, uint8_t red, uint8_t green, uint8_t blue);
+
+private:
+	void write(uint8_t base, uint8_t function);
+	void write(uint8_t base, uint8_t function, uint8_t value);
+	void write(uint8_t base, uint8_t function, uint8_t *buf, uint8_t num);
+	void read(uint8_t base, uint8_t function, uint8_t *buf, uint8_t num);
 	TwoWire *i2cPort;
 	uint8_t i2cAddr;
 	};

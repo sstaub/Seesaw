@@ -2,17 +2,27 @@
 #define SEESAW_DEFS_H
 
 #define I2C_READ_DELAY_US 250
+#define I2C_WRITE_PIXEL_DELAY_US 100
 
 // rotary encoder hardware defs
-#define ENCODER_I2C_ADDRESS    0x36
-#define ENCODER_NEOPIXEL_PIN   6
-#define ENCODER_BUTTON_PIN     24
-
-// neokey hardware defs
+#define ENCODER_I2C_ADDRESS  0x36
+#define ENCODER_NEOPIXEL_PIN 6
+#define ENCODER_BUTTON_PIN   24
 
 // neokey 1x4 hardware defs
+#define NEOKEY_1X4_I2C_ADDRESS  0x30
+#define NEOKEY_1X4_NEOPIXEL_PIN 3
+#define NEOKEY_1X4_BUTTON_1_PIN 4
+#define NEOKEY_1X4_BUTTON_2_PIN 5
+#define NEOKEY_1X4_BUTTON_3_PIN 6
+#define NEOKEY_1X4_BUTTON_4_PIN 7
+#define NEOKEY_1X4_BUTTONMASK ((1 << 4) | (1 << 5) | (1 << 6) | (1 << 7))
 
 // neoslider hardware defs
+#define NEO_SLIDER_I2C_ADDRESS  0x30
+#define NEO_SLIDER_NEOPIXEL_PIN 14
+#define NEO_SLIDER_ANALOG_PIN   18
+
 
 // base addresses
 #define SEESAW_BASE_ADDRESS_STATUS    0x00
