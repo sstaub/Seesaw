@@ -72,7 +72,7 @@ SeesawEncoder enc; // use default port and address
 void begin();
 ```
 
-Initialize the encoder, this must done in `setup()`.
+Initialize the Encoder module, this must done in `setup()`.
 
 **Example**
 ```cpp
@@ -172,11 +172,11 @@ SeesawNeoKey4 key4; // use default port and address
 void begin();
 ```
 
-Initialize the keys, this must done in `setup()`.
+Initialize the NeoKey4 module, this must done in `setup()`.
 
 **Example**
 ```cpp
-enc.begin();
+key4.begin();
 ```
 
 ### **interruptButton()**
