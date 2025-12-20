@@ -2,11 +2,9 @@
 
 Arduino library for Adafruit Seesaw with a small footprint and easy to use.
 
-Supported Hardware, still in progress:
+Supported Hardware:
 - [x] Rotary Encoder https://www.adafruit.com/product/4991
-- [ ] NeoKey https://www.adafruit.com/product/4978
-- [ ] NeoKey 1x4 https://www.adafruit.com/product/4980
-- [ ] NeoSlider https://www.adafruit.com/product/5295
+- [x] NeoKey 1x4 https://www.adafruit.com/product/4980
 
 ## Example for the rotary encoder
 ```cpp
@@ -87,7 +85,7 @@ void interruptEncoder(bool interrupt);
 ```
 - **interrupt** true for interrupt set, false to disable interrupt
 
-Set the Interrupt of the encoder, this should done in `setup()`.
+Set the interrupt pin (INT) of the Encoder module, this should done in `setup()`.
 
 **Example**
 ```cpp
@@ -100,7 +98,7 @@ void interruptButton(bool interrupt);
 ```
 - **interrupt** true for interrupt set, false to disable interrupt
 
-Set the Interrupt of the button, this should done in `setup()`. Beware that you get an interrupt for press and release the button!
+Set the interrupt pin (INT) of the Encoder module, this should done in `setup()`. Beware that you get an interrupt for press and release the button!
 
 **Example**
 ```cpp
@@ -147,4 +145,78 @@ Set the Neopixel values.
 **Example**
 ```cpp
 enc.pixel(32, 32, 32);
+```
+
+# Documentation NeoKey4
+
+## Constructor
+```cpp
+SeesawNeoKey4(uint8_t i2cAddr = ENCODER_I2C_ADDRESS, TwoWire &i2cPort = WIRE);
+```
+- **i2caddr** optional I2C Address of the encoder, default is 0x36, [0x36 ... 0x3F]
+- **i2cPort** optional I2C Port, this is only needed if you another interface than the standard Wire like Wire1 ...
+
+Create an Encoder object with a given address of the I2C interface and port.
+
+**Example**
+```cpp
+const uint8_t i2caddr = 0x37;
+SeesawNeoKey4 key4(i2caddr, Wire1); // use Wire1
+SeesawNeoKey4 key4; // use default port and address
+```
+
+## Methods
+
+### **begin()**
+```cpp
+void begin();
+```
+
+Initialize the keys, this must done in `setup()`.
+
+**Example**
+```cpp
+enc.begin();
+```
+
+### **interruptButton()**
+```cpp
+void interruptButton(bool interrupt);
+```
+- **interrupt** true for interrupt set, false to disable interrupt
+
+Set the interrupt pin (INT) of the NeoKey4 module, this should done in `setup()`. Beware that you get an interrupt for press and release the button!
+
+**Example**
+```cpp
+key4.interruptButton(true);
+```
+
+### **button()**
+```cpp
+bool button(uint8_t num);
+```
+- **num** button number [1 ... 4]
+
+Get the state of the buttons, this should done in `loop()`.
+
+**Example**
+```cpp
+bool btn1 = key4.button(1); // get the state of button 1
+```
+
+### **pixel()**
+```cpp
+void pixel(uint8_t num, uint8_t red, uint8_t green, uint8_t blue);
+```
+- **num** pixel number [1 ... 4]
+- **red** value for red
+- **green** value for green
+- **blue** value for blue
+
+Set the Neopixel color values.
+
+**Example**
+```cpp
+enc.pixel(1, 32, 32, 32); // set the colors of pixel 1
 ```
